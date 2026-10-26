@@ -1,0 +1,42 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.getElementById("products-grid");
+  if (!grid) return;
+  const search = document.getElementById("product-search");
+  const category = document.getElementById("category-filter");
+  const brand = document.getElementById("brand-filter");
+  const availability = document.getElementById("availability-filter");
+  const sort = document.getElementById("sort-filter");
+  const min = document.getElementById("min-price");
+  const max = document.getElementById("max-price");
+  const count = document.getElementById("results-count");
+  const empty = document.getElementById("products-empty");
+  const reset = document.getElementById("reset-filters");
+  const params = new URLSearchParams(location.search);
+  if (params.get("category")) category.value = params.get("category");
+  const all = GlowProducts.getProducts();
+  [...new Set(all.map(p => p.category))].sort().forEach(v => category.add(new Option(v, v)));
+  [...new Set(all.map(p => p.brand))].sort().forEach(v => brand.add(new Option(v, v)));
+  if (params.get("category")) category.value = params.get("category");
+  function render() {
+    let list = GlowProducts.getProducts();
+    const q = search.value.trim().toLowerCase();
+    if (q) list = list.filter(p => `${p.name} ${p.brand} ${p.description}`.toLowerCase().includes(q));
+    if (category.value) list = list.filter(p => p.category === category.value);
+    if (brand.value) list = list.filter(p => p.brand === brand.value);
+    if (availability.value === "in") list = list.filter(p => Number(p.stock) > 0);
+    if (availability.value === "out") list = list.filter(p => Number(p.stock) <= 0);
+    if (min.value !== "" && Number.isFinite(Number(min.value))) list = list.filter(p => p.price >= Number(min.value));
+    if (max.value !== "" && Number.isFinite(Number(max.value))) list = list.filter(p => p.price <= Number(max.value));
+    if (sort.value === "price-asc") list.sort((a,b) => a.price-b.price);
+    if (sort.value === "price-desc") list.sort((a,b) => b.price-a.price);
+    if (sort.value === "name") list.sort((a,b) => a.name.localeCompare(b.name));
+    if (sort.value === "newest") list.sort((a,b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+    grid.innerHTML = list.map(Glow.renderProductCard).join("");
+    count.textContent = `${list.length} product${list.length === 1 ? "" : "s"} found`;
+    empty.hidden = list.length !== 0;
+    grid.hidden = list.length === 0;
+  }
+  [search, category, brand, availability, sort, min, max].forEach(el => el.addEventListener("input", render));
+  reset.addEventListener("click", () => { search.value = ""; category.value = ""; brand.value = ""; availability.value = ""; sort.value = "featured"; min.value = ""; max.value = ""; render(); });
+  render();
+});

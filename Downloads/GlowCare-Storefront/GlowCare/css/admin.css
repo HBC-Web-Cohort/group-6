@@ -1,0 +1,4 @@
+/* Admin dashboard-specific styles */
+.admin-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.admin-table { width: 100%; border-collapse: collapse; min-width: 650px; }
+.admin-table th, .admin-table td { text-align: left; padding: 12px; border-bottom: 1px solid var(--line); }

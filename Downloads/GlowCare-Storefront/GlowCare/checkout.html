@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GlowCare premium skincare and beauty essentials.">
+  <title>Checkout | GlowCare</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body data-page="checkout">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="GlowCare home">Glow<span>Care</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="products.html">Products</a><a
+          href="products.html?category=Skincare">Skincare</a>
+        <a href="favorites.html">Favorites <span class="nav-count" data-favorites-count>0</span></a><a
+          href="cart.html">Cart <span class="nav-count" data-cart-count>0</span></a>
+        <a href="about.html">About Us</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions"><a class="icon-button" href="products.html" aria-label="Search products">⌕</a><a
+          class="button button-secondary button-small" href="account.html">Account</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-heading">
+      <div class="container"><span class="eyebrow">Almost there</span>
+        <h1>Checkout</h1>
+        <p>Enter your delivery details to place an order.</p>
+        <div class="site-notice">Cash on Delivery is available. Order records are stored in this browser only.</div>
+      </div>
+    </section>
+    <section class="page-layout">
+      <div class="container checkout-layout">
+        <form class="content-card" id="checkout-form">
+          <h2>Delivery Information</h2>
+          <div class="form-field"><label for="customer-name">Full name *</label><input id="customer-name" name="name"
+              autocomplete="name" required minlength="2" maxlength="100"></div>
+          <div class="form-field"><label for="customer-phone">Phone number *</label><input id="customer-phone"
+              name="phone" autocomplete="tel" required minlength="6" maxlength="25" pattern="[0-9+() -]{6,25}"
+              title="Enter a valid phone number using digits and common phone symbols."></div>
+          <div class="form-field"><label for="customer-email">Email (optional)</label><input id="customer-email"
+              name="email" type="email" autocomplete="email"></div>
+          <div class="form-field"><label for="customer-address">Delivery address *</label><textarea
+              id="customer-address" name="address" required minlength="5" maxlength="300"
+              autocomplete="street-address"></textarea></div>
+          <div class="form-field"><label for="customer-city">City / Province *</label><input id="customer-city"
+              name="city" required minlength="2" maxlength="100" autocomplete="address-level2"></div>
+          <div class="form-field"><label for="customer-notes">Order notes (optional)</label><textarea
+              id="customer-notes" name="notes" maxlength="500"></textarea></div>
+          <div class="form-field"><label for="payment-method">Payment method</label><select id="payment-method"
+              name="payment">
+              <option value="cod">Cash on Delivery</option>
+            </select><small class="muted">No real payment is processed.</small></div>
+          <div id="checkout-message" hidden></div><button class="button button-primary" type="submit">Place
+            Order</button>
+        </form>
+        <aside class="content-card" id="checkout-summary">
+          <h2>Order Summary</h2>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="index.html" style="color:white">Glow<span>Care</span></a>
+          <p>Thoughtful skincare and beauty essentials for your daily routine.</p>
+          <p class="small">A thoughtful approach to everyday skincare.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links"><a href="products.html">All Products</a><a
+              href="products.html?category=Skincare">Skincare</a><a href="favorites.html">Favorites</a><a
+              href="cart.html">Cart</a></div>
+        </div>
+        <div>
+          <h4>GlowCare</h4>
+          <div class="footer-links"><a href="about.html">About Us</a><a href="contact.html">Contact</a><a
+              href="admin.html">Store Management</a><a href="login.html">My Account</a></div>
+        </div>
+        <div>
+          <h4>Customer Care</h4>
+          <p>Questions about your routine?</p><a href="contact.html">Contact us →</a>
+          <p class="small">Orders and messages remain in this browser until a backend is connected.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 GlowCare. © GlowCare. Product and order data are stored locally in this browser.
+      </div>
+    </div>
+  </footer>
+  <script src="js/products-data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+
+</html>

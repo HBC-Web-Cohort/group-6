@@ -1,0 +1,10 @@
+/* Extra responsive overrides are kept separate so the project can grow easily. */
+@media (min-width: 1200px) {
+  .hero-panel { min-height: 470px; }
+}
+@media (max-width: 520px) {
+  .page-heading { padding-top: 30px; }
+  .content-card { padding: 18px; }
+  .cart-summary { padding: 18px; }
+  .admin-form-grid { grid-template-columns: 1fr; }
+}

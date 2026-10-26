@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GlowCare premium skincare and beauty essentials.">
+  <title>Store Management | GlowCare</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body data-page="admin">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="GlowCare home">Glow<span>Care</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="products.html">Products</a><a
+          href="products.html?category=Skincare">Skincare</a>
+        <a href="favorites.html">Favorites <span class="nav-count" data-favorites-count>0</span></a><a
+          href="cart.html">Cart <span class="nav-count" data-cart-count>0</span></a>
+        <a href="about.html">About Us</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions"><a class="icon-button" href="products.html" aria-label="Search products">⌕</a><a
+          class="button button-secondary button-small" href="account.html">Account</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-heading">
+      <div class="container"><span class="eyebrow">Store tools</span>
+        <h1>Store Management</h1>
+        <p>Manage the catalog and locally saved orders in this browser. This page does not have server-side access
+          control.</p>
+        <div class="site-notice">Never expose client-side admin tools as secure in a real store. Changes here are local
+          to this browser.</div>
+      </div>
+    </section>
+    <section class="page-layout">
+      <div class="container">
+        <div class="admin-stats" id="admin-stats"></div>
+        <div class="two-column">
+          <form class="content-card" id="admin-product-form">
+            <h2 id="admin-form-title">Add Product</h2>
+            <div class="admin-form-grid">
+              <div class="form-field"><label for="admin-id">Product ID *</label><input id="admin-id" name="id"
+                  type="number" min="1" required></div>
+              <div class="form-field"><label for="admin-name">Name *</label><input id="admin-name" name="name" required
+                  maxlength="100"></div>
+              <div class="form-field"><label for="admin-brand">Brand *</label><input id="admin-brand" name="brand"
+                  required maxlength="100"></div>
+              <div class="form-field"><label for="admin-category">Category *</label><select id="admin-category"
+                  name="category" required>
+                  <option value="Skincare">Skincare</option>
+                  <option value="Haircare">Haircare</option>
+                  <option value="Body Care">Body Care</option>
+                  <option value="Beauty Accessories">Beauty Accessories</option>
+                </select></div>
+              <div class="form-field"><label for="admin-price">Price (AFN) *</label><input id="admin-price" name="price"
+                  type="number" min="0" step="1" required></div>
+              <div class="form-field"><label for="admin-stock">Stock *</label><input id="admin-stock" name="stock"
+                  type="number" min="0" step="1" required></div>
+              <div class="form-field" style="grid-column:1/-1"><label for="admin-image">Image URL
+                  (optional)</label><input id="admin-image" name="image" type="url" placeholder="https://…"></div>
+              <div class="form-field" style="grid-column:1/-1"><label for="admin-description">Description
+                  *</label><textarea id="admin-description" name="description" required maxlength="500"></textarea>
+              </div>
+            </div>
+            <div class="inline-actions"><button class="button button-primary" type="submit">Save Product</button><button
+                class="button button-secondary" type="button" id="admin-clear-form">Clear Form</button></div>
+            <div id="admin-message" hidden></div>
+          </form>
+          <div class="content-card">
+            <h2>Orders</h2>
+            <p class="muted small">Orders created from checkout in this browser.</p>
+            <div id="admin-orders"></div><button class="button button-danger" id="admin-reset" type="button">Reset Local
+              Store Data</button>
+          </div>
+        </div>
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <h2>Product Catalog</h2>
+              <p>Changes are saved in this browser only.</p>
+            </div>
+          </div>
+          <div class="content-card table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="index.html" style="color:white">Glow<span>Care</span></a>
+          <p>Thoughtful skincare and beauty essentials for your daily routine.</p>
+          <p class="small">A thoughtful approach to everyday skincare.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links"><a href="products.html">All Products</a><a
+              href="products.html?category=Skincare">Skincare</a><a href="favorites.html">Favorites</a><a
+              href="cart.html">Cart</a></div>
+        </div>
+        <div>
+          <h4>GlowCare</h4>
+          <div class="footer-links"><a href="about.html">About Us</a><a href="contact.html">Contact</a><a
+              href="admin.html">Store Management</a><a href="login.html">My Account</a></div>
+        </div>
+        <div>
+          <h4>Customer Care</h4>
+          <p>Questions about your routine?</p><a href="contact.html">Contact us →</a>
+          <p class="small">Orders and messages remain in this browser until a backend is connected.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 GlowCare. © GlowCare. Product and order data are stored locally in this browser.
+      </div>
+    </div>
+  </footer>
+  <script src="js/products-data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+
+</html>

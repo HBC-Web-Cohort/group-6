@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Your GlowCare account and order history.">
+    <title>My Account | GlowCare</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body data-page="account">
+    <header class="site-header">
+        <div class="container navbar"><a class="brand" href="index.html">Glow<span>Care</span></a><button
+                class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-links" aria-label="Main navigation"><a href="index.html">Home</a><a
+                    href="products.html">Shop</a><a href="favorites.html">Favorites <span class="nav-count"
+                        data-favorites-count>0</span></a><a href="cart.html">Cart <span class="nav-count"
+                        data-cart-count>0</span></a><a href="about.html">About</a><a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions"><a class="button button-secondary button-small" href="account.html">My Account</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="page-heading">
+            <div class="container"><span class="eyebrow">Your GlowCare</span>
+                <h1>My Account</h1>
+                <p>Manage your local profile and review your orders.</p>
+            </div>
+        </section>
+        <section class="page-layout">
+            <div class="container">
+                <div id="account-content" class="content-card"></div>
+                <div class="site-notice" style="margin-top:18px">Account and order details are stored only in this
+                    browser. This is not server-backed account security.</div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">© <span data-year></span> GlowCare · Local browser storage</div>
+        </div>
+    </footer>
+    <script src="js/products-data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/account.js"></script>
+</body>
+
+</html>
