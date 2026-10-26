@@ -8,9 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!newsletter.reportValidity()) return;
     const email = document.getElementById("newsletter-email").value.trim().toLowerCase();
     const subscribers = Glow.read(Glow.KEYS.newsletter, []);
-    if (subscribers.some(item => item.email === email)) { Glow.showMessage(msg, "This email is already on this browser's subscription list.", "error"); return; }
+    if (subscribers.some(item => item.email === email)) {
+      Glow.showMessage(msg,
+        "This email is already on this browser's subscription list.", "error");
+      return;
+    }
     subscribers.push({ email, createdAt: new Date().toISOString() });
-    if (!Glow.write(Glow.KEYS.newsletter, subscribers)) { Glow.showMessage(msg, "Browser storage is unavailable. Please try again.", "error"); return; }
+    if (!Glow.write(Glow.KEYS.newsletter, subscribers)) {
+      Glow.showMessage(msg,
+        "Browser storage is unavailable. Please try again.", "error");
+      return;
+    }
     Glow.showMessage(msg, "Subscription saved in this browser. No email was sent.");
     newsletter.reset();
   });
